@@ -1,0 +1,41 @@
+<div>
+  <table id='testTable' style="width:100%">
+    <tr>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Money</th>
+    </tr>
+    <tr>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>50</td>
+    </tr>
+  </table>
+</div>
+
+
+<div *ngIf="displayVaild!=true">
+  <input type="text" [(ngModel)]="user_name" placeholder="เลขบัญชี"><br>
+  <input type="password" [(ngModel)]="user_pass" placeholder="รหัสผ่าน"><br>
+
+  <button (click)="onClick()">ยืนยัน</button>
+</div>
+<div *ngIf="displayVaild">
+  <input type="number" [(ngModel)]="user_money" placeholder="จำนวนเงิน"><br>
+  <input type="text" [(ngModel)]="user_name" placeholder="เลขบัญชี"><br>
+  <label>จำนวนเงินคงเหลือ :<span>{{modelATM?.user_money}}</span></label><br>
+  <button (click)="clickDeposit()">ฝาก</button>
+  <button (click)="clickWithdraw()">ถอน</button>
+  <button (click)="clickTransfer()">โอน</button>
+  <button (click)="clickCheckMoney()">ตรวจสอบยอดเงิน</button>
+</div>
+
+<div *ngIf="displayResult">
+  <label>
+    การดำเนินการสำเร็จ
+  </label>
+</div>
+<div>
+
+</div>
+<router-outlet></router-outlet>
